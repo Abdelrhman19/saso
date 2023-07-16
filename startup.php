@@ -91,8 +91,8 @@ class ControllerStartupStartup extends Controller {
 			$code = $this->config->get('config_language');
 		}
 		
-		if (!isset($this->session->data['language']) || $this->session->data['language'] != $code) {
-			$this->session->data['language'] = $code;
+		if (!isset($this->session->data['language']) || $this->session->data['language'] !== $code) {
+                         $this->session->data['language'] = $codes[$code];
 		}
 				
 		if (!isset($this->request->cookie['language']) || $this->request->cookie['language'] != $code) {
